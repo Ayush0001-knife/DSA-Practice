@@ -1,22 +1,6 @@
 #include <iostream>
 using namespace std;
 
-// bool nextPermutation1(int nums[], int n)
-// {
-//       for (int i = n - 2; i >= 0; i--)
-//       {
-//             for (int j = i + 1; j < n; j++)
-//             {
-//                   if (nums[i] < nums[j])
-//                   {
-//                         swap(nums[i], nums[j]);
-//                         return true;
-//                   }
-//             }
-//       }
-//       return false;
-// }
-
 bool nextPermutation1(int nums[], int n)
 {
       for (int j = n - 2; j >= 0; j--)
