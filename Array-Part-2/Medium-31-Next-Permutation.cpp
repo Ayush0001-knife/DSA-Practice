@@ -28,7 +28,7 @@ bool nextPermutation1(int nums[], int n)
                         if (nums[i] > nums[j])
                         {
                               swap(nums[i], nums[j]);
-                              reverse(nums + j + 1, nums);
+                              reverse(nums + j + 1, nums + n);
                               return true;
                         }
                   }
