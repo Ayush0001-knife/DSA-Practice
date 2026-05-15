@@ -4,47 +4,37 @@ using namespace std;
 
 int main()
 {
-      string s = "pwwkew";
+      string s = "bbbbb";
       int len = s.length();
-      int result = 0;
+      int maxCOunt = 0;
 
-      if (s != " ")
+      if (s.length() == 1)
       {
-            int ind = 0;
-            if (s.length() != 1 && s.length() > 1)
-            {
-                  for (int i = ind; i < len; i++)
-                  {
-                        string subString = "";
-
-                        subString += s[i];
-                        for (int j = i + 1; j < len; j++)
-                        {
-
-                              if (subString.find(s[j]) != string::npos)
-                              {
-                                    continue;
-                              }
-                              else
-                              {
-                                    subString += s[j];
-                              }
-                        }
-                        int length = subString.length();
-                        result = max(result, length);
-                  }
-            }
-            else
-            {
-                  result = 1;
-            }
+            maxCOunt = 1;
       }
       else
       {
-            result = 1;
+            for (int i = 0; i < len; i++)
+            {
+                  string newStr = "";
+                  newStr = newStr + s[i];
+                  for (int j = i + 1; j < len; j++)
+                  {
+                        if (newStr.find(s[j], 0) == string::npos)
+                        {
+                              newStr = newStr + s[j];
+                        }
+                        else
+                        {
+                              break;
+                        }
+                  }
+                  int newLen = newStr.length();
+                  maxCOunt = max(maxCOunt, newLen);
+            }
       }
 
-      cout << result;
+      cout << "Longest Substring length : " << maxCOunt << endl;
 
       return 0;
 }
