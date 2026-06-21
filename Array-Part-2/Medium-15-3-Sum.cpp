@@ -7,6 +7,7 @@ int main()
       int n = sizeof(nums) / sizeof(nums[0]);
       sort(nums, nums + n);
       vector<vector<int>> ans;
+      bool isAns = false;
 
       for (int i = 0; i < n; i++)
       {
@@ -27,7 +28,7 @@ int main()
                   {
 
                         ans.push_back({nums[i], nums[st], nums[end]});
-
+                        isAns = true;
                         st++;
                         end--;
 
