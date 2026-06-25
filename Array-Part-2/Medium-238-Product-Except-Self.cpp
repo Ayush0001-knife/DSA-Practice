@@ -9,24 +9,15 @@ int main()
 
       for (int i = 0; i < n; i++)
       {
-            int forwardMultiply = 1;
-            int backwardMultiply = 1;
-
-            int f = i + 1;
-            int b = i - 1;
-
-            while (f < n)
+            int val = 1;
+            for (int j = 0; j < n; j++)
             {
-                  forwardMultiply *= nums[f];
-                  f = f + 1;
+                  if (i != j)
+                  {
+                        val *= nums[j];
+                  }
             }
-            while (b >= 0)
-            {
-                  backwardMultiply *= nums[b];
-                  b = b - 1;
-            }
-
-            ans.push_back(forwardMultiply * backwardMultiply);
+            ans.push_back(val);
       }
 
       for (int i = 0; i < n; i++)
