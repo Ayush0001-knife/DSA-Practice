@@ -1,34 +1,33 @@
 #include <iostream>
+#include <vector>
+#include <deque>
 using namespace std;
 
 int main()
 {
-      int arr[] = {0, 0};
+      int arr[] = {1, 2, 3, 4};
       int n = sizeof(arr) / sizeof(arr[0]);
       vector<int> ans;
+      vector<int> prefix;
+      prefix.push_back(1);
+      deque<int> suffix;
+      suffix.push_back(1);
 
-      int str1 = 0, str2 = 0;
-      int multiply = 1;
-      while (str1 != n && str2 < n)
+      for (int i = 1; i < n; i++)
       {
-            if (str1 != str2)
-            {
-                  multiply *= arr[str2];
-            }
-            if (str2 == n - 1)
-            {
-                  ans.push_back(multiply);
-                  multiply = 1;
-                  str1 += 1;
-                  str2 = 0;
-            }
-            else
-            {
-                  str2 += 1;
-            }
+            prefix.push_back(prefix[i - 1] * arr[i - 1]);
+      }
+      for (int i = n - 2; i >= 0; i--)
+      {
+            suffix.push_front(suffix[0] * arr[i + 1]);
       }
 
-      for (int i = 0; i < ans.size(); i++)
+      for (int i = 0; i < n; i++)
+      {
+            ans.push_back(prefix[i] * suffix[i]);
+      }
+
+      for (int i = 0; i < n; i++)
       {
             cout << ans[i] << " ";
       }
