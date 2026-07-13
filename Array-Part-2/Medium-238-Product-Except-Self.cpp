@@ -3,24 +3,32 @@ using namespace std;
 
 int main()
 {
-      vector<int> nums = {-1, 1, 0, -3, 3};
-      int n = nums.size();
+      int arr[] = {0, 0};
+      int n = sizeof(arr) / sizeof(arr[0]);
       vector<int> ans;
 
-      for (int i = 0; i < n; i++)
+      int str1 = 0, str2 = 0;
+      int multiply = 1;
+      while (str1 != n && str2 < n)
       {
-            int val = 1;
-            for (int j = 0; j < n; j++)
+            if (str1 != str2)
             {
-                  if (i != j)
-                  {
-                        val *= nums[j];
-                  }
+                  multiply *= arr[str2];
             }
-            ans.push_back(val);
+            if (str2 == n - 1)
+            {
+                  ans.push_back(multiply);
+                  multiply = 1;
+                  str1 += 1;
+                  str2 = 0;
+            }
+            else
+            {
+                  str2 += 1;
+            }
       }
 
-      for (int i = 0; i < n; i++)
+      for (int i = 0; i < ans.size(); i++)
       {
             cout << ans[i] << " ";
       }
