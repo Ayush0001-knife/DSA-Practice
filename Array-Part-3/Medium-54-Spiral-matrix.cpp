@@ -21,13 +21,19 @@ int main()
                   ans.push_back(matrix[i][endCol]);
             }
 
-            for (int i = endCol - 1; i >= strCol; i--)
+            if (strRow < endRow)
             {
-                  ans.push_back(matrix[endRow][i]);
+                  for (int i = endCol - 1; i >= strCol; i--)
+                  {
+                        ans.push_back(matrix[endRow][i]);
+                  }
             }
-            for (int i = endRow - 1; i >= strRow + 1; i--)
+            if (strCol < endCol)
             {
-                  ans.push_back(matrix[i][strCol]);
+                  for (int i = endRow - 1; i >= strRow + 1; i--)
+                  {
+                        ans.push_back(matrix[i][strCol]);
+                  }
             }
             strRow++, strCol++;
             endRow--, endCol--;
