@@ -3,23 +3,42 @@ using namespace std;
 
 int main()
 {
-      int heights[] = {2, 1, 5, 6, 2, 3};
-      int width = 1;
+      int heights[] = {2, 4};
       int n = sizeof(heights) / sizeof(heights[0]);
+      int maxArea = 0;
 
       for (int i = 0; i < n; i++)
       {
-            for (int j = i; j < n; j++)
+            int width = 1;
+            for (int j = i + 1; j < n; j++)
             {
-                  cout << "[ ";
-                  for (int k = i; k <= j; k++)
+                  if (heights[j] >= heights[i])
                   {
-                        cout << heights[k] << " ";
+                        width += 1;
                   }
-                  cout << "] ";
+                  else
+                  {
+                        break;
+                  }
             }
-            cout << endl;
+            if (i != 0)
+            {
+                  for (int j = i - 1; j >= 0; j--)
+                  {
+                        if (heights[j] >= heights[i])
+                        {
+                              width += 1;
+                        }
+                        else
+                        {
+                              break;
+                        }
+                  }
+            }
+            maxArea = max(maxArea, (heights[i] * width));
       }
+
+      cout << "Max Area is : " << maxArea << endl;
 
       return 0;
 }
