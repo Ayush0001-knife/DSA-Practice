@@ -21,20 +21,19 @@ int main()
                         break;
                   }
             }
-            if (i != 0)
+
+            for (int j = i - 1; j >= 0; j--)
             {
-                  for (int j = i - 1; j >= 0; j--)
+                  if (heights[j] >= heights[i])
                   {
-                        if (heights[j] >= heights[i])
-                        {
-                              width += 1;
-                        }
-                        else
-                        {
-                              break;
-                        }
+                        width += 1;
+                  }
+                  else
+                  {
+                        break;
                   }
             }
+
             maxArea = max(maxArea, (heights[i] * width));
       }
 
