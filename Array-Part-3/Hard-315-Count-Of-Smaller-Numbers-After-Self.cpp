@@ -3,27 +3,39 @@ using namespace std;
 
 int main()
 {
-      int nums[] = {5, 2, 6, 1};
+      // int nums[] = {1, 3, 5, 10, 2, 6, 8, 9};
+      int nums[] = {1, 3, 2, 3, 1};
       int n = sizeof(nums) / sizeof(nums[0]);
-      vector<int> ans;
+      vector<int> temp;
+      int invsCount = 0;
 
-      for (int i = 0; i < n; i++)
+      int st = 0, end = n - 1;
+      int mid = (st + end) / 2;
+      int i = st, j = mid + 1;
+
+      while (i <= mid && j <= end)
       {
-            int count = 0;
-            for (int j = i + 1; j < n; j++)
+            if (nums[i] <= nums[j])
             {
-                  if (nums[i] > nums[j])
-                  {
-                        count += 1;
-                  }
+                  i += 1;
             }
-            ans.push_back(count);
+            else
+            {
+                  invsCount += (mid - i + 1);
+                  j += 1;
+            }
       }
 
-      for (int i = 0; i < ans.size(); i++)
+      while (i <= mid)
       {
-            cout << ans[i] << " ";
+            i += 1;
       }
+      while (j <= mid)
+      {
+            j += 1;
+      }
+
+      cout << invsCount;
 
       return 0;
 }
