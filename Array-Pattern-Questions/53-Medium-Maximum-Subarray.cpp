@@ -23,15 +23,28 @@ int main()
       //       }
       // }
 
-      // Optimized Approach
+      // Optimized Brute Force Approach
+      // int maxSum = INT16_MIN;
+      // for (int i = 0; i < n; i++)
+      // {
+      //       int currSum = 0;
+      //       for (int j = i; j < n; j++)
+      //       {
+      //             currSum += nums[j];
+      //             maxSum = max(currSum, maxSum);
+      //       }
+      // }
+
+      // Kadane's Algorithm
       int maxSum = INT16_MIN;
+      int currSum = 0;
       for (int i = 0; i < n; i++)
       {
-            int currSum = 0;
-            for (int j = i; j < n; j++)
+            currSum += nums[i];
+            maxSum = max(currSum, maxSum);
+            if (currSum < 0)
             {
-                  currSum += nums[j];
-                  maxSum = max(currSum, maxSum);
+                  currSum = 0;
             }
       }
 
