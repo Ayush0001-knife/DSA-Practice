@@ -42,6 +42,10 @@ int main()
       {
             currProduct *= nums[i];
             maxProduct = max(currProduct, maxProduct);
+            if (currProduct == 0)
+            {
+                  currProduct = 1;
+            }
       }
 
       cout << maxProduct << endl;
