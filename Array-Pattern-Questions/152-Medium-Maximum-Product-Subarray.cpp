@@ -68,6 +68,18 @@ int main()
             }
       }
 
+      currProduct = 1;
+
+      for (int i = n - 1; i >= 0; i--)
+      {
+            currProduct *= nums[i];
+            maxProduct = max(currProduct, maxProduct);
+            if (currProduct == 0)
+            {
+                  currProduct = 1;
+            }
+      }
+
       cout << maxProduct << endl;
 
       return 0;
