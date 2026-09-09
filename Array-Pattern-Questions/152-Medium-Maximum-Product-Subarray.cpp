@@ -35,6 +35,26 @@ int main()
       //       }
       // }
 
+      // Observation Based Approach
+      // int maxProduct = INT16_MIN;
+
+      // int preMax = 1;
+      // int suffMax = 1;
+      // for (int i = 0; i < n; i++)
+      // {
+      //       if (preMax == 0)
+      //       {
+      //             preMax = 1;
+      //       }
+      //       if (suffMax == 0)
+      //       {
+      //             suffMax = 1;
+      //       }
+      //       preMax *= nums[i];
+      //       suffMax *= nums[n - 1 - i];
+      //       maxProduct = max(maxProduct, max(preMax, suffMax));
+      // }
+
       // Kadane's Algorithm
       int maxProduct = INT16_MIN;
       int currProduct = 1;
