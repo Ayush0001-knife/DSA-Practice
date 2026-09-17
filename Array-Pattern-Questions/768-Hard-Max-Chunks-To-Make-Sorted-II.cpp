@@ -6,13 +6,6 @@ int main()
       vector<int> arr = {1, 0, 2, 3, 4};
       int n = arr.size();
 
-      bool isDescending = false;
-
-      for (int i = n - 2; i >= 0; i--)
-      {
-            if ()
-      }
-
       vector<int> runningSum(n); // Creates n elements, initialized to 0
 
       for (int i = 0; i < n; i++)
