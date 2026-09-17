@@ -3,7 +3,7 @@ using namespace std;
 
 int main()
 {
-      vector<int> arr = {1, 0, 2, 3, 4};
+      vector<int> arr = {2, 1, 3, 4, 4};
       int n = arr.size();
 
       vector<int> runningSum(n); // Creates n elements, initialized to 0
