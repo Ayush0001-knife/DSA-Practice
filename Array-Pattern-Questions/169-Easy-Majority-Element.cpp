@@ -8,7 +8,6 @@ int main()
 
       // Brute Force Approach
       // int majorElement;
-      // int maxCount = 0;
       // for (int i = 0; i < n; i++)
       // {
       //       int count = 1;
@@ -19,10 +18,10 @@ int main()
       //                   count++;
       //             }
       //       }
-      //       if (count > maxCount)
+      //       if (count > n/2)
       //       {
-      //             maxCount = count;
       //             majorElement = nums[i];
+      //             break;
       //       }
       // }
 
