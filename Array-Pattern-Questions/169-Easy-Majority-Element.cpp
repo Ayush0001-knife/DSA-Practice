@@ -25,7 +25,7 @@ int main()
       //       }
       // }
 
-      // Optimized Brute Force Approach -> Not Good Approach and have many errors in it
+      // Optimized Brute Force Approach
       sort(nums.begin(), nums.end());
       int majorElement = nums[0];
       int presentCount = 1;
