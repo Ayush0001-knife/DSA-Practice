@@ -2,12 +2,12 @@
 #include <vector>
 using namespace std;
 
-vector<vector<int>> getPermutations(vector<int> &nums, int idx, vector<vector<int>> &ans, int n)
+void getPermutations(vector<int> &nums, int idx, vector<vector<int>> &ans, int n)
 {
       if (idx == n)
       {
-            ans.push_back(nums);
-            return ans;
+            ans.push_back({nums});
+            return;
       }
 
       for (int i = idx; i < n; i++)
