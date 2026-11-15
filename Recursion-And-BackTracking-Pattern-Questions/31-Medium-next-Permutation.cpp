@@ -1,3 +1,4 @@
+#include <algorithm>
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -68,12 +69,46 @@ void BruteForceApproach(vector<int> &nums)
       }
 }
 
+void optimalApproach(vector<int> &nums)
+{
+      int idx = -1;
+      for (int i = nums.size() - 2; i >= 0; i--)
+      {
+            if (nums[i] < nums[i + 1])
+            {
+                  idx = i;
+                  break;
+            }
+      }
+      if (idx == -1)
+      {
+            sort(nums.begin(), nums.end());
+      }
+      else
+      {
+            for (int i = nums.size() - 1; i >= idx; i--)
+            {
+                  if (nums[idx] < nums[i])
+                  {
+                        swap(nums[idx], nums[i]);
+                        break;
+                  }
+            }
+            reverse(nums.begin() + idx + 1, nums.end());
+      }
+
+      for (int i = 0; i < nums.size(); i++)
+      {
+            cout << nums[i] << " ";
+      }
+}
+
 int main()
 {
 
-      vector<int> nums = {1, 1, 5};
+      vector<int> nums = {3, 2, 1};
 
-      BruteForceApproach(nums);
+      optimalApproach(nums);
 
       return 0;
 }
