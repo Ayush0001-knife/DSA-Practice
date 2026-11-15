@@ -20,7 +20,7 @@ void getPermutations(vector<int> &nums, int idx, vector<vector<int>> &ans, int n
 
 int main()
 {
-      vector<int> nums = {1, 2, 3};
+      vector<int> nums = {1, 1, 5};
       int n = nums.size();
 
       vector<vector<int>> ans;

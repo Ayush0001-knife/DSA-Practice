@@ -40,8 +40,22 @@ void BruteForceApproach(vector<int> &nums)
                   }
                   else
                   {
-                        // Select the next permutation
-                        nums = ans[i + 1];
+                        if (ans[i] == ans[i + 1])
+                        {
+                              // If the next permutation is the same as the current one, skip to the next unique permutation
+                              while (i + 1 < ans.size() && ans[i] == ans[i + 1])
+                              {
+                                    i++;
+                              }
+                        }
+                        if (i == ans.size() - 1)
+                        {
+                              sort(nums.begin(), nums.end());
+                        }
+                        else
+                        {
+                              nums = ans[i + 1];
+                        }
                   }
 
                   break;
@@ -57,7 +71,7 @@ void BruteForceApproach(vector<int> &nums)
 int main()
 {
 
-      vector<int> nums = {1, 2, 3};
+      vector<int> nums = {1, 1, 5};
 
       BruteForceApproach(nums);
 
