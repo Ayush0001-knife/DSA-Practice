@@ -3,49 +3,34 @@ using namespace std;
 
 int main()
 {
-      vector<int> arr = {2, 0, 1};
+      vector<int> arr = {1, 0, 2, 3, 4};
       int n = arr.size();
 
-      int count = 0;
+      vector<int> runningSum(n); // Creates n elements, initialized to 0
 
-      if (n == 1)
+      for (int i = 0; i < n; i++)
       {
-            return 1;
-      }
-      else
-      {
-            for (int i = n - 2; i >= 0; i--)
+            if (i == 0)
             {
-                  if (i == 0)
-                  {
-
-                        if (arr[i] > arr[i + 1])
-                        {
-                              count += 1;
-                        }
-                        else if (arr[i] < arr[i + 1])
-                        {
-                              count += 2;
-                        }
-                  }
-                  else
-                  {
-                        if (arr[i] < arr[i + 1])
-                        {
-                              count += 1;
-                        }
-                  }
+                  runningSum[i] = arr[i];
+            }
+            else
+            {
+                  runningSum[i] = runningSum[i - 1] + arr[i];
             }
       }
 
-      if (count == 0)
+      int count = 0;
+
+      for (int i = 0; i < n; i++)
       {
-            cout << "Only 1 chunk" << endl;
+            if (runningSum[i] == (i * (i + 1) / 2))
+            {
+                  count += 1;
+            }
       }
-      else
-      {
-            cout << "Chunks are : " << count << endl;
-      }
+
+      cout << count << endl;
 
       return 0;
 }
