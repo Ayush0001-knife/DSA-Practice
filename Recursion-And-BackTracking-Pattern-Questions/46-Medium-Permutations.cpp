@@ -29,7 +29,7 @@ int main()
 
       getPermutations(nums, idx, ans, n);
 
-      sort(ans.begin(), ans.end());
+      sort(ans.begin(), ans.end()); // sort the ans vector
 
       for (int i = 0; i < ans.size(); i++)
       {
