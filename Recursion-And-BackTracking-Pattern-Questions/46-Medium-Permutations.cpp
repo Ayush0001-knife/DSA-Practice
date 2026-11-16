@@ -20,7 +20,7 @@ void getPermutations(vector<int> &nums, int idx, vector<vector<int>> &ans, int n
 
 int main()
 {
-      vector<int> nums = {1, 1, 5};
+      vector<int> nums = {1, 0, 2, 3, 4};
       int n = nums.size();
 
       vector<vector<int>> ans;
@@ -28,6 +28,8 @@ int main()
       int idx = 0;
 
       getPermutations(nums, idx, ans, n);
+
+      sort(ans.begin(), ans.end());
 
       for (int i = 0; i < ans.size(); i++)
       {
