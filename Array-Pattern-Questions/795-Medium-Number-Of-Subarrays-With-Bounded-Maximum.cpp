@@ -62,6 +62,10 @@ int optimalApproach(vector<int> &nums, int left, int right)
             {
                   count++;
             }
+            else
+            {
+                  i = i + 1;
+            }
       }
 
       return count;
