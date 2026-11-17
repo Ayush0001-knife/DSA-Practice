@@ -3,34 +3,48 @@ using namespace std;
 
 int main()
 {
-      vector<int> arr = {1, 0, 2, 3, 4};
+      vector<int> arr = {2, 1, 3, 4, 4};
       int n = arr.size();
 
-      vector<int> runningSum(n); // Creates n elements, initialized to 0
+      vector<int> temp = arr;
+      sort(temp.begin(), temp.end(), greater<>());
 
-      for (int i = 0; i < n; i++)
+      if (arr == temp)
       {
-            if (i == 0)
-            {
-                  runningSum[i] = arr[i];
-            }
-            else
-            {
-                  runningSum[i] = runningSum[i - 1] + arr[i];
-            }
+            cout << "1";
       }
-
-      int count = 0;
-
-      for (int i = 0; i < n; i++)
+      else
       {
-            if (runningSum[i] == (i * (i + 1) / 2))
+            int count = 0;
+            for (int i = n - 2; i >= 0; i--)
             {
-                  count += 1;
-            }
-      }
 
-      cout << count << endl;
+                  if (arr[i] > arr[i + 1])
+                  {
+                        if (i != 0)
+                        {
+                              continue;
+                        }
+                        else
+                        {
+                              count += 1;
+                        }
+                  }
+                  else
+                  {
+
+                        if (i != 0)
+                        {
+                              count += 1;
+                        }
+                        else
+                        {
+                              count += 2;
+                        }
+                  }
+            }
+            cout << count;
+      }
 
       return 0;
 }
