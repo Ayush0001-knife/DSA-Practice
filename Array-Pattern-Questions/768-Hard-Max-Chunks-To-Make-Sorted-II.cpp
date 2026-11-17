@@ -32,15 +32,6 @@ int main()
                   }
                   else
                   {
-
-                        if (i != 0)
-                        {
-                              count += 1;
-                        }
-                        else
-                        {
-                              count += 2;
-                        }
                   }
             }
             cout << count;
