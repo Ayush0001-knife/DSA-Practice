@@ -54,7 +54,7 @@ int main()
       int left = 2;
       int right = 8;
 
-      cout << bruteForceApproach;
+      cout << optimizedBruteForceApproach(nums, left, right);
 
       return 0;
 }
