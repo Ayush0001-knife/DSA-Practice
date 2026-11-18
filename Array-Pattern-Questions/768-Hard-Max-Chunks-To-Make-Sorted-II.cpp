@@ -1,41 +1,42 @@
+
 #include <iostream>
+#include <vector>
+#include <algorithm>
 using namespace std;
 
 int main()
 {
-      vector<int> arr = {2, 1, 3, 4, 4};
+      vector<int> arr = {5, 4, 3, 2, 1};
+
       int n = arr.size();
 
-      vector<int> temp = arr;
-      sort(temp.begin(), temp.end(), greater<>());
+      vector<int> leftMax(n);
+      leftMax[0] = arr[0];
 
-      if (arr == temp)
+      for (int i = 1; i < n; i++)
       {
-            cout << "1";
+            leftMax[i] = max(leftMax[i - 1], arr[i]);
       }
-      else
+
+      vector<int> rightMin(n);
+      rightMin[n - 1] = arr[n - 1];
+
+      for (int i = n - 2; i >= 0; i--)
       {
-            int count = 0;
-            for (int i = n - 2; i >= 0; i--)
+            rightMin[i] = min(rightMin[i + 1], arr[i]);
+      }
+
+      int count = 1; // At least one chunk always exists
+
+      for (int j = 0; j < n - 1; j++)
+      {
+            if (leftMax[j] <= rightMin[j + 1])
             {
-
-                  if (arr[i] > arr[i + 1])
-                  {
-                        if (i != 0)
-                        {
-                              continue;
-                        }
-                        else
-                        {
-                              count += 1;
-                        }
-                  }
-                  else
-                  {
-                  }
+                  count++;
             }
-            cout << count;
       }
+
+      cout << count;
 
       return 0;
 }
