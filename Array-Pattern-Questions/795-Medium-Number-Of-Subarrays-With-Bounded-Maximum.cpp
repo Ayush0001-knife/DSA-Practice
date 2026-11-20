@@ -64,7 +64,7 @@ int optimalApproach(vector<int> &nums, int left, int right)
             }
             else
             {
-                  i = i + 1;
+                  maxi = INT16_MIN;
             }
       }
 
@@ -73,9 +73,9 @@ int optimalApproach(vector<int> &nums, int left, int right)
 
 int main()
 {
-      vector<int> nums = {2, 9, 2, 5, 6};
+      vector<int> nums = {2, 1, 4, 3};
       int left = 2;
-      int right = 8;
+      int right = 3;
 
       cout << optimalApproach(nums, left, right);
 
